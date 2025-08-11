@@ -291,7 +291,7 @@ body {
     justify-content: center;
     margin: 0 auto;
     font-size: 4rem;
-    color: var(--text-primary);
+    color: #ffffff;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -335,7 +335,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-primary);
+    color: #4a5568;
     text-decoration: none;
     transition: var(--transition);
     font-size: 1.2rem;
@@ -371,7 +371,7 @@ body {
 
 .btn-primary {
     background: var(--gradient-primary);
-    color: var(--text-primary);
+    color: #ffffff;
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
@@ -382,7 +382,7 @@ body {
 
 .btn-secondary {
     background: var(--glass-bg);
-    color: var(--text-primary);
+    color: #4a5568;
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(10px);
 }
@@ -562,7 +562,7 @@ body {
 .skill-item {
     padding: 0.5rem 1rem;
     background: var(--gradient-primary);
-    color: var(--text-primary);
+    color: #ffffff;
     border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 500;
@@ -632,7 +632,7 @@ body {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: var(--border-radius-small);
-    color: var(--text-primary);
+    color: #4a5568;
     text-decoration: none;
     transition: var(--transition);
     backdrop-filter: blur(10px);
@@ -664,11 +664,11 @@ body {
 .chatbot-header h3 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: var(--text-primary);
+    color: #2d3748;
 }
 
 .chatbot-header p {
-    color: var(--text-secondary);
+    color: #4a5568;
 }
 
 .chatbot-iframe-container {
@@ -683,7 +683,7 @@ body {
     display: none;
     text-align: center;
     padding: 3rem;
-    color: var(--text-secondary);
+    color: #4a5568;
 }
 
 .chatbot-fallback i {
@@ -708,11 +708,11 @@ body {
 .contact-info h3 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: var(--text-primary);
+    color: #2d3748;
 }
 
 .contact-info p {
-    color: var(--text-secondary);
+    color: #4a5568;
     margin-bottom: 2rem;
 }
 
@@ -742,12 +742,12 @@ body {
 
 .contact-item span:first-child {
     font-weight: 600;
-    color: var(--text-primary);
+    color: #2d3748;
     margin-bottom: 0.2rem;
 }
 
 .contact-item a {
-    color: var(--text-secondary);
+    color: #4a5568;
     text-decoration: none;
     transition: var(--transition);
 }
@@ -764,7 +764,7 @@ body {
 .contact-form h3 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: var(--text-primary);
+    color: #2d3748;
 }
 
 .form-group {
@@ -775,7 +775,7 @@ body {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: var(--text-primary);
+    color: #2d3748;
 }
 
 .form-group input,
@@ -785,7 +785,7 @@ body {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: var(--border-radius-small);
-    color: var(--text-primary);
+    color: #2d3748;
     font-size: 1rem;
     backdrop-filter: blur(10px);
     transition: var(--transition);
@@ -800,7 +800,7 @@ body {
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: var(--text-muted);
+    color: #718096;
 }
 
 .form-group textarea {
