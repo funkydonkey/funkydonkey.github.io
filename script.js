@@ -290,27 +290,40 @@ function initAnimations() {
         revealObserver.observe(element);
     });
     
-    // Optimized parallax effect for floating shapes
-    let isScrolling = false;
+    // Ultra-smooth parallax effect for floating shapes with GPU acceleration
     const parallaxElements = document.querySelectorAll('.floating-shape');
+    let ticking = false;
+    let lastScrollY = 0;
     
     function updateParallax() {
         const scrolled = window.pageYOffset;
+        const scrollDelta = scrolled - lastScrollY;
         
         parallaxElements.forEach((element, index) => {
-            const speed = 0.1 + (index * 0.05);
-            element.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+            const speed = 0.05 + (index * 0.02); // Reduced speed for smoother effect
+            const currentTransform = element.style.transform || '';
+            const yPos = scrolled * speed;
+            const rotation = scrolled * 0.02; // Much slower rotation
+            
+            // Use transform3d for GPU acceleration
+            element.style.transform = `translate3d(0, ${yPos}px, 0) rotate(${rotation}deg)`;
+            element.style.willChange = 'transform';
         });
         
-        isScrolling = false;
+        lastScrollY = scrolled;
+        ticking = false;
     }
     
-    window.addEventListener('scroll', function() {
-        if (!isScrolling) {
+    // Throttled scroll handler with requestAnimationFrame
+    function onScroll() {
+        if (!ticking) {
             requestAnimationFrame(updateParallax);
-            isScrolling = true;
+            ticking = true;
         }
-    });
+    }
+    
+    // Use passive listener for better performance
+    window.addEventListener('scroll', onScroll, { passive: true });
     
     // Typing animation for hero title
     const heroTitle = document.querySelector('.hero-title');
@@ -376,45 +389,51 @@ function animateCounter(element, target) {
     }, 50);
 }
 
-// Smooth scrolling for navigation links
+// Ultra-smooth scrolling with custom easing for navigation links
 function initSmoothScrolling() {
-    const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+    const allLinks = document.querySelectorAll('a[href^="#"]');
     
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
+    // Custom easing function for beautiful smooth scrolling
+    function easeInOutQuart(t) {
+        return t < 0.5 
+            ? 8 * t * t * t * t 
+            : 1 - Math.pow(-2 * t + 2, 4) / 2;
+    }
+    
+    function smoothScrollTo(targetElement) {
+        const startPosition = window.pageYOffset;
+        const targetPosition = targetElement.offsetTop - 80; // Account for fixed nav
+        const distance = targetPosition - startPosition;
+        const duration = 1500; // 1.5 seconds for ultra-smooth effect
+        let start = null;
+        
+        function animateScroll(timestamp) {
+            if (!start) start = timestamp;
+            const elapsed = timestamp - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeProgress = easeInOutQuart(progress);
             
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
+            window.scrollTo(0, startPosition + (distance * easeProgress));
             
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed nav
-                
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+            if (progress < 1) {
+                requestAnimationFrame(animateScroll);
             }
-        });
-    });
+        }
+        
+        requestAnimationFrame(animateScroll);
+    }
     
-    // Smooth scroll for other internal links
-    const internalLinks = document.querySelectorAll('a[href^="#"]:not(.nav-link)');
-    
-    internalLinks.forEach(link => {
+    allLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            const href = this.getAttribute('href');
+            if (href === '#' || !href.startsWith('#')) return;
             
-            const targetId = this.getAttribute('href').substring(1);
+            e.preventDefault();
+            const targetId = href.substring(1);
             const targetSection = document.getElementById(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80;
-                
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+                smoothScrollTo(targetSection);
             }
         });
     });
