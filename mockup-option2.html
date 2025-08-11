@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option 2: Dark Brutalist Tech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.4;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent 49px, #111 50px, #111 51px, transparent 52px),
+                linear-gradient(180deg, transparent 49px, #111 50px, #111 51px, transparent 52px);
+            background-size: 50px 50px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        .mockup-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .terminal-header {
+            background: #000000;
+            border: 2px solid #00ff88;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .terminal-prompt {
+            color: #00ff88;
+            font-size: 0.9rem;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: #00ff88;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            color: #00ff88;
+            border-left: 4px solid #00ff88;
+            padding-left: 1rem;
+        }
+        
+        .card {
+            background: #111111;
+            border: 1px solid #333333;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: #00ff88;
+        }
+        
+        .hero-card {
+            background: #000000;
+            border: 2px solid #00ff88;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        
+        .hero-name {
+            font-size: 2.5rem;
+            font-weight: 900;
+            font-family: 'Arial', sans-serif;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        
+        .hero-role {
+            font-size: 1.2rem;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+        }
+        
+        .experience-item {
+            margin-bottom: 2rem;
+        }
+        
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+        
+        .company {
+            font-size: 0.9rem;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .job-description {
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+        
+        .skill-tag {
+            background: #000000;
+            border: 1px solid #00ff88;
+            color: #00ff88;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+        
+        .skill-tag:hover {
+            background: #00ff88;
+            color: #000000;
+        }
+        
+        .glitch-effect {
+            position: relative;
+        }
+        
+        .glitch-effect::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 2px;
+            top: 0;
+            color: #00ff88;
+            opacity: 0.5;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup-container">
+        <div class="terminal-header">
+            <div class="terminal-prompt">$ whoami</div>
+            <h1 class="title glitch-effect" data-text="YOUR NAME">YOUR NAME</h1>
+            <div class="subtitle">SOFTWARE_ENGINEER.EXE</div>
+        </div>
+        
+        <div class="section">
+            <div class="hero-card card">
+                <h2 class="hero-name">FULL-STACK DEVELOPER</h2>
+                <p class="hero-role">Crafting digital experiences</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">// EXPERIENCE</h3>
+            <div class="card">
+                <div class="experience-item">
+                    <div class="job-title">SENIOR SOFTWARE ENGINEER</div>
+                    <div class="company">tech_company_inc() { 2022_present }</div>
+                    <p class="job-description">
+                        Led development of scalable applications. Improved system performance by 40%. 
+                        Specialized in React, Node.js, and cloud architectures.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">// TECHNOLOGIES</h3>
+            <div class="skills-grid">
+                <div class="skill-tag">REACT</div>
+                <div class="skill-tag">NODE.JS</div>
+                <div class="skill-tag">PYTHON</div>
+                <div class="skill-tag">AWS</div>
+                <div class="skill-tag">DOCKER</div>
+                <div class="skill-tag">MONGODB</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option 1: Nothing-Inspired Minimal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.4;
+        }
+        
+        .mockup-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+        }
+        
+        .accent-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #ff4444;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #000;
+            padding-bottom: 0.5rem;
+        }
+        
+        .card {
+            border: 2px solid #000000;
+            background: #ffffff;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 8px 8px 0px #000000;
+        }
+        
+        .hero-card {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .hero-name {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -3px;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-title {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+        
+        .experience-item {
+            margin-bottom: 2rem;
+        }
+        
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .company {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        
+        .skill-tag {
+            background: #000000;
+            color: #ffffff;
+            padding: 0.8rem 1rem;
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+        
+        .geometric-bg {
+            position: fixed;
+            top: 20%;
+            right: 5%;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ddd;
+            z-index: -1;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="geometric-bg"></div>
+    
+    <div class="mockup-container">
+        <h1 class="title">Your Name<span class="accent-dot"></span></h1>
+        
+        <div class="section">
+            <div class="hero-card card">
+                <h2 class="hero-name">SOFTWARE ENGINEER</h2>
+                <p class="hero-title">Building the future, one line at a time</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">Experience</h3>
+            <div class="card">
+                <div class="experience-item">
+                    <div class="job-title">SENIOR SOFTWARE ENGINEER</div>
+                    <div class="company">Tech Company Inc. • 2022 - Present</div>
+                    <p>Led development of scalable web applications using modern technologies. Improved system performance by 40%.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-tag">REACT</div>
+                <div class="skill-tag">NODE.JS</div>
+                <div class="skill-tag">PYTHON</div>
+                <div class="skill-tag">AWS</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

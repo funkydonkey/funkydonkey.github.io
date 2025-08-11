@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option 3: Modern Corporate Clean</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f8f9fa;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+        
+        .mockup-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 0;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #4a5568;
+            font-weight: 400;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.2s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .hero-card {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: #ffffff;
+            border: none;
+        }
+        
+        .hero-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-role {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .experience-item {
+            margin-bottom: 2rem;
+        }
+        
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .company {
+            font-size: 1rem;
+            color: #4a5568;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .job-description {
+            color: #718096;
+            font-size: 1rem;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-category {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .skill-category-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        
+        .skill-tag {
+            background: #ebf4ff;
+            color: #1a365d;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #bee3f8;
+        }
+        
+        .cta-section {
+            background: #1a365d;
+            color: #ffffff;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+        }
+        
+        .cta-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-button {
+            background: #ffffff;
+            color: #1a365d;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a365d;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup-container">
+        <div class="header">
+            <h1 class="title">Your Name</h1>
+            <p class="subtitle">Senior Software Engineer</p>
+        </div>
+        
+        <div class="section">
+            <div class="hero-card card">
+                <h2 class="hero-name">Full-Stack Developer</h2>
+                <p class="hero-role">Building scalable solutions for modern challenges</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">Professional Experience</h3>
+            <div class="card">
+                <div class="experience-item">
+                    <div class="job-title">Senior Software Engineer</div>
+                    <div class="company">Tech Company Inc. • 2022 - Present</div>
+                    <p class="job-description">
+                        Led development of scalable web applications using React, Node.js, and cloud technologies. 
+                        Improved system performance by 40% and mentored junior developers.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3 class="section-title">Technical Skills</h3>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <div class="skill-category-title">Frontend</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">TypeScript</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Backend</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="card">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Technologies</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h3 class="cta-title">Let's Work Together</h3>
+            <p>Ready to build something amazing?</p>
+            <button class="cta-button">Get In Touch</button>
+        </div>
+    </div>
+</body>
+</html>
