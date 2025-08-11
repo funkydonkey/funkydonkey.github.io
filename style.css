@@ -6,25 +6,25 @@
 }
 
 :root {
-    /* Glass morphism colors */
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --glass-shadow: rgba(0, 0, 0, 0.1);
+    /* Glass morphism colors - lighter and softer */
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-shadow: rgba(0, 0, 0, 0.05);
     
-    /* Primary colors */
-    --primary-color: #667eea;
-    --secondary-color: #764ba2;
-    --accent-color: #f093fb;
+    /* Primary colors - softer and lighter */
+    --primary-color: #8b9ee8;
+    --secondary-color: #9b7bb8;
+    --accent-color: #f5b8fc;
     
-    /* Text colors */
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.8);
-    --text-muted: rgba(255, 255, 255, 0.6);
+    /* Text colors - reduced contrast */
+    --text-primary: #f8f9fa;
+    --text-secondary: rgba(248, 249, 250, 0.85);
+    --text-muted: rgba(248, 249, 250, 0.65);
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --gradient-background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    /* Gradients - much lighter and softer */
+    --gradient-primary: linear-gradient(135deg, #8b9ee8 0%, #9b7bb8 100%);
+    --gradient-secondary: linear-gradient(135deg, #f5b8fc 0%, #ff8fa3 100%);
+    --gradient-background: linear-gradient(135deg, #e8ecf7 0%, #f0e8f7 50%, #fdf2fd 100%);
     
     /* Spacing */
     --section-padding: 5rem 0;
@@ -48,7 +48,7 @@ html {
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    color: var(--text-primary);
+    color: #4a5568;
     background: var(--gradient-background);
     min-height: 100vh;
     position: relative;
@@ -68,7 +68,7 @@ body {
 
 .floating-shape {
     position: absolute;
-    background: var(--glass-bg);
+    background: rgba(255, 255, 255, 0.04);
     border-radius: 50%;
     backdrop-filter: blur(10px);
     animation: float 20s infinite ease-in-out;
@@ -135,7 +135,7 @@ body {
 
 .glass-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
 }
 
 /* Container */
@@ -245,10 +245,7 @@ body {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 3rem;
-    background: var(--gradient-secondary);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #2d3748;
     position: relative;
 }
 
@@ -302,22 +299,19 @@ body {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    background: var(--gradient-secondary);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #2d3748;
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
-    color: var(--text-secondary);
+    color: #4a5568;
     margin-bottom: 1.5rem;
     font-weight: 500;
 }
 
 .hero-description {
     font-size: 1.1rem;
-    color: var(--text-muted);
+    color: #718096;
     margin-bottom: 2rem;
     max-width: 600px;
     margin-left: auto;
@@ -406,7 +400,7 @@ body {
 
 .about-text p {
     font-size: 1.1rem;
-    color: var(--text-secondary);
+    color: #4a5568;
     margin-bottom: 1.5rem;
     max-width: 800px;
     margin-left: auto;
@@ -428,15 +422,12 @@ body {
     display: block;
     font-size: 2.5rem;
     font-weight: 700;
-    background: var(--gradient-secondary);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #2d3748;
 }
 
 .stat-label {
     font-size: 1rem;
-    color: var(--text-muted);
+    color: #718096;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -504,17 +495,17 @@ body {
 .timeline-content h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: var(--text-primary);
+    color: #2d3748;
 }
 
 .timeline-content h4 {
     font-size: 1.2rem;
-    color: var(--text-secondary);
+    color: #4a5568;
     margin-bottom: 1rem;
 }
 
 .timeline-content p {
-    color: var(--text-muted);
+    color: #718096;
     margin-bottom: 1rem;
     line-height: 1.6;
 }
@@ -527,11 +518,11 @@ body {
 
 .tag {
     padding: 0.3rem 0.8rem;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 20px;
     font-size: 0.8rem;
-    color: var(--text-secondary);
+    color: #4a5568;
     backdrop-filter: blur(10px);
 }
 
@@ -550,7 +541,7 @@ body {
 .skill-category h3 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
-    color: var(--text-primary);
+    color: #2d3748;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -613,11 +604,11 @@ body {
 .project-content h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--text-primary);
+    color: #2d3748;
 }
 
 .project-content p {
-    color: var(--text-muted);
+    color: #718096;
     margin-bottom: 1.5rem;
     flex: 1;
 }
