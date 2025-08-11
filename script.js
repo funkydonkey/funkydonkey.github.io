@@ -274,29 +274,42 @@ function initAnimations() {
     
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && !entry.target.classList.contains('reveal')) {
                 entry.target.classList.add('reveal');
                 entry.target.style.animationDelay = `${Math.random() * 0.3}s`;
+                // Stop observing this element once revealed
+                revealObserver.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
     });
     
     revealElements.forEach(element => {
         revealObserver.observe(element);
     });
     
-    // Parallax effect for floating shapes
-    window.addEventListener('scroll', function() {
+    // Optimized parallax effect for floating shapes
+    let isScrolling = false;
+    const parallaxElements = document.querySelectorAll('.floating-shape');
+    
+    function updateParallax() {
         const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.floating-shape');
         
         parallaxElements.forEach((element, index) => {
             const speed = 0.1 + (index * 0.05);
             element.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
         });
+        
+        isScrolling = false;
+    }
+    
+    window.addEventListener('scroll', function() {
+        if (!isScrolling) {
+            requestAnimationFrame(updateParallax);
+            isScrolling = true;
+        }
     });
     
     // Typing animation for hero title
@@ -433,17 +446,7 @@ function throttle(func, limit) {
     };
 }
 
-// Performance optimizations
-const debouncedScroll = debounce(function() {
-    // Debounced scroll operations
-}, 100);
-
-const throttledScroll = throttle(function() {
-    // Throttled scroll operations
-}, 16);
-
-window.addEventListener('scroll', debouncedScroll);
-window.addEventListener('scroll', throttledScroll);
+// Performance optimizations - removed conflicting scroll listeners
 
 // Error handling
 window.addEventListener('error', function(e) {
