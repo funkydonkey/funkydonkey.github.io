@@ -643,6 +643,64 @@ body {
     transform: translateY(-2px);
 }
 
+/* Education section */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.education-item {
+    padding: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.education-icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    flex-shrink: 0;
+}
+
+.education-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #2d3748;
+}
+
+.education-content h4 {
+    font-size: 1.1rem;
+    color: #4a5568;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.education-details {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.education-year {
+    background: var(--gradient-primary);
+    color: #ffffff;
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--border-radius-small);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.education-gpa {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: #4a5568;
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--border-radius-small);
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+}
+
 /* Chatbot section */
 .chatbot-container {
     padding: 2rem;
