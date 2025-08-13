@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrey Molchansky - Elegant Minimal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --cream: #faf8f5;
+            --charcoal: #2c2c2c;
+            --gray: #7a7a7a;
+            --white: #ffffff;
+            --shadow-light: 0 2px 20px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Elegant background patterns */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: 
+                radial-gradient(circle at 1px 1px, var(--charcoal) 1px, transparent 0);
+            background-size: 40px 40px;
+            animation: patternShift 60s linear infinite;
+        }
+
+        @keyframes patternShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
+        }
+
+        /* Floating accent elements */
+        .accent-element {
+            position: absolute;
+            width: 4px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--gold), transparent);
+            border-radius: 2px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .accent-1 {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .accent-2 {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .accent-3 {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-20px) rotate(10deg); opacity: 0.8; }
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--charcoal);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            position: relative;
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        /* Cards */
+        .elegant-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .elegant-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            transition: all 0.4s ease;
+        }
+
+        .elegant-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .elegant-card:hover::before {
+            height: 8px;
+        }
+
+        /* Experience */
+        .experience-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .exp-item {
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .exp-date {
+            min-width: 180px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--gold);
+            font-weight: 600;
+            text-align: right;
+            line-height: 1.4;
+        }
+
+        .exp-divider {
+            width: 2px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            margin: 0 1rem;
+            flex-shrink: 0;
+        }
+
+        .exp-content {
+            flex: 1;
+        }
+
+        .exp-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-content h4 {
+            color: var(--gray);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .exp-content p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .elegant-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .elegant-tag {
+            padding: 0.5rem 1.2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .elegant-tag:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .skill-category {
+            text-align: center;
+        }
+
+        .skill-category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .skill-category i {
+            color: var(--gold);
+            font-size: 1.6rem;
+        }
+
+        .skill-items {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .skill-item {
+            padding: 1.2rem 1.5rem;
+            background: var(--white);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            color: var(--charcoal);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: var(--gold);
+            border-radius: 8px 0 0 8px;
+            transition: width 0.3s ease;
+        }
+
+        .skill-item:hover::before {
+            width: 4px;
+        }
+
+        .skill-item:hover {
+            transform: translateX(8px);
+            border-color: var(--gold);
+        }
+
+        /* About */
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--gray);
+            margin-bottom: 3rem;
+        }
+
+        .stats-elegant {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-elegant {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--white), rgba(212, 175, 55, 0.05));
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--white), rgba(212, 175, 55, 0.05));
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--gold);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-info h4 {
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-info span {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .education-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold), rgba(212, 175, 55, 0.8));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .education-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-content h4 {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .education-year {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .exp-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .exp-date {
+                text-align: left;
+                min-width: auto;
+            }
+            
+            .exp-divider {
+                display: none;
+            }
+            
+            .stats-elegant {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="accent-element accent-1"></div>
+    <div class="accent-element accent-2"></div>
+    <div class="accent-element accent-3"></div>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">Andrey Molchansky</div>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Andrey Molchansky</h1>
+            <p class="hero-subtitle">Senior Finance Controller</p>
+            <p class="hero-description">
+                Crafting financial excellence through strategic consolidation, advanced systems implementation, and data-driven insights that transform business operations.
+            </p>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="section-title">About</h2>
+        <div class="elegant-card about-content">
+            <p class="about-text">
+                Senior Finance Manager with extensive experience in group consolidation, financial systems implementation, and cross-functional stakeholder management. Currently based in Berlin, I specialize in large-scale financial data migrations and reporting automation, transforming complex financial landscapes into streamlined, efficient operations.
+            </p>
+            
+            <div class="stats-elegant">
+                <div class="stat-elegant">
+                    <span class="stat-number">6+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-elegant">
+                    <span class="stat-number">340</span>
+                    <span class="stat-label">Entities Consolidated</span>
+                </div>
+                <div class="stat-elegant">
+                    <span class="stat-number">50M+</span>
+                    <span class="stat-label">Euros Managed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <h2 class="section-title">Professional Journey</h2>
+        <div class="experience-grid">
+            <div class="elegant-card exp-item">
+                <div class="exp-date">November 2023<br>Present</div>
+                <div class="exp-divider"></div>
+                <div class="exp-content">
+                    <h3>Senior Group Controller</h3>
+                    <h4>Delivery Hero SE</h4>
+                    <p>Built key reports including Free Cash Flow, Valuation dashboard, and Unit economics. Led Financial ScoreCard Project defining methodology and automating screening across 11 Regions encompassing 340 legal entities. Served as the primary point of contact for all consolidation process redesign requests.</p>
+                    <div class="elegant-tags">
+                        <span class="elegant-tag">OneStream</span>
+                        <span class="elegant-tag">Financial Consolidation</span>
+                        <span class="elegant-tag">Reporting Automation</span>
+                        <span class="elegant-tag">IFRS</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="elegant-card exp-item">
+                <div class="exp-date">March 2021<br>October 2023</div>
+                <div class="exp-divider"></div>
+                <div class="exp-content">
+                    <h3>Senior Consultant</h3>
+                    <h4>Orlov.Finance</h4>
+                    <p>Supervised start-ups with comprehensive optimization projects spanning from purchasing to invoicing. Successfully eliminated cash gaps by developing robust cash planning processes. Guided b2b-SaaS startup to achieve break-even by building sustainable unit economy from ground up.</p>
+                    <div class="elegant-tags">
+                        <span class="elegant-tag">Financial Planning</span>
+                        <span class="elegant-tag">Cash Management</span>
+                        <span class="elegant-tag">ERP Implementation</span>
+                        <span class="elegant-tag">Unit Economics</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="elegant-card exp-item">
+                <div class="exp-date">February 2019<br>March 2021</div>
+                <div class="exp-divider"></div>
+                <div class="exp-content">
+                    <h3>FP&A Analyst</h3>
+                    <h4>Sevkabel Holding</h4>
+                    <p>Acquired over 50 million euros in investments for real estate renovations. Optimized managerial reporting preparation timeline from 1 month to 10 days. Responsible for comprehensive P&L, Cashflow, and Balance statement reporting and forecasting.</p>
+                    <div class="elegant-tags">
+                        <span class="elegant-tag">Financial Modeling</span>
+                        <span class="elegant-tag">Investment Analysis</span>
+                        <span class="elegant-tag">Real Estate</span>
+                        <span class="elegant-tag">FP&A</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2 class="section-title">Expertise</h2>
+        <div class="skills-grid">
+            <div class="elegant-card skill-category">
+                <h3><i class="fas fa-chart-line"></i> Financial Systems</h3>
+                <div class="skill-items">
+                    <div class="skill-item">OneStream Implementation</div>
+                    <div class="skill-item">LucaNet Migration</div>
+                    <div class="skill-item">SAP Integration</div>
+                    <div class="skill-item">ERP Implementation</div>
+                    <div class="skill-item">Financial Modeling</div>
+                    <div class="skill-item">Budget Planning</div>
+                </div>
+            </div>
+            
+            <div class="elegant-card skill-category">
+                <h3><i class="fas fa-calculator"></i> Financial Reporting</h3>
+                <div class="skill-items">
+                    <div class="skill-item">IFRS Standards</div>
+                    <div class="skill-item">Group Consolidation</div>
+                    <div class="skill-item">Management Reporting</div>
+                    <div class="skill-item">Audit Support</div>
+                    <div class="skill-item">Cash Flow Analysis</div>
+                    <div class="skill-item">Unit Economics</div>
+                </div>
+            </div>
+            
+            <div class="elegant-card skill-category">
+                <h3><i class="fas fa-database"></i> Technical Skills</h3>
+                <div class="skill-items">
+                    <div class="skill-item">Advanced Excel</div>
+                    <div class="skill-item">SQL Databases</div>
+                    <div class="skill-item">VBA Automation</div>
+                    <div class="skill-item">Data Migration</div>
+                    <div class="skill-item">Process Automation</div>
+                    <div class="skill-item">Dashboard Building</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <h2 class="section-title">Education & Certifications</h2>
+        <div class="education-grid">
+            <div class="elegant-card education-item">
+                <div class="education-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="education-content">
+                    <h3>Specialist Degree in Psychology</h3>
+                    <h4>Saint-Petersburg State University</h4>
+                    <div class="education-year">2008 - 2013</div>
+                </div>
+            </div>
+            
+            <div class="elegant-card education-item">
+                <div class="education-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="education-content">
+                    <h3>OneStream Essentials Certification</h3>
+                    <h4>Berlin, Germany</h4>
+                    <div class="education-year">2024</div>
+                </div>
+            </div>
+            
+            <div class="elegant-card education-item">
+                <div class="education-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <div class="education-content">
+                    <h3>Financial Management at CFO Level</h3>
+                    <h4>Eduson Academy, Moscow</h4>
+                    <div class="education-year">2022</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="elegant-card">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Email</h4>
+                        <span>a.molchansky@gmail.com</span>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Phone</h4>
+                        <span>+49(176)648-121-94</span>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Location</h4>
+                        <span>Berlin, Germany</span>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Work Authorization</h4>
+                        <span>Authorized to work in Germany</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'elegantFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.elegant-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(40px)';
+            observer.observe(card);
+        });
+
+        // Counter animation
+        const counters = document.querySelectorAll('.stat-number');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const finalText = target.textContent;
+                    const number = parseInt(finalText.replace(/[^\d]/g, ''));
+                    let current = 0;
+                    const increment = number / 60;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= number) {
+                            target.textContent = finalText;
+                            clearInterval(timer);
+                        } else {
+                            target.textContent = Math.floor(current) + (finalText.includes('+') ? '+' : '');
+                        }
+                    }, 30);
+                    
+                    statsObserver.unobserve(target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => statsObserver.observe(counter));
+
+        // Parallax effect for accent elements
+        let ticking = false;
+        
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.accent-element');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.1 + (index * 0.02);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+            
+            ticking = false;
+        }
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', requestTick, { passive: true });
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes elegantFadeIn {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
