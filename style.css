@@ -3,7 +3,7 @@
     --accent: #ff6b35;
     --dark: #1a1a1a;
     --light: #f0f0f0;
-    --gray: #666666;
+    --gray: #ffffff;
     --white: #ffffff;
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
@@ -717,12 +717,43 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-    }
-    
     .hamburger {
         display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        flex-direction: column;
+        background: var(--white);
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+        z-index: 999;
+        border-top: 4px solid var(--dark);
+        padding: 2rem 0;
+        box-shadow: var(--shadow);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 1.5rem 0;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
     }
     
     .experience-item {
@@ -732,6 +763,16 @@ body {
     
     .about-stats {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+        line-height: 1.2;
+        word-break: break-word;
+    }
+
+    .container {
+        padding: 0 1rem;
     }
     
     .contact-grid {
