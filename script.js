@@ -262,45 +262,6 @@ style.textContent = `
         }
     }
     
-    /* Scroll to top button */
-    .scroll-to-top {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        background: var(--dark);
-        color: var(--white);
-        border: 3px solid var(--dark);
-        cursor: pointer;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        z-index: 1000;
-        transition: all 0.2s ease;
-        position: relative;
-    }
-    
-    .scroll-to-top::before {
-        content: '';
-        position: absolute;
-        top: -3px;
-        left: -3px;
-        right: -3px;
-        bottom: -3px;
-        background: var(--accent);
-        z-index: -1;
-        transform: translate(6px, 6px);
-        transition: transform 0.2s ease;
-    }
-    
-    .scroll-to-top:hover::before {
-        transform: translate(3px, 3px);
-    }
-    
-    .scroll-to-top:hover {
-        transform: translate(-2px, -2px);
-    }
+
 `;
 document.head.appendChild(style);
