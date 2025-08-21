@@ -148,8 +148,19 @@ body {
     color: var(--dark);
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     text-align: center;
+}
+
+.section-description {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--dark);
+    margin-bottom: 3rem;
+    opacity: 0.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Hero Section */
