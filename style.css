@@ -469,46 +469,20 @@ body {
 }
 
 /* Skills */
-.skills-grid {
+.skills-compact {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.skill-category h3 {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--dark);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.skill-category i {
-    color: var(--accent);
-    font-size: 1.5rem;
-}
-
-.skill-list {
-    display: grid;
-    gap: 0.8rem;
-}
-
-.skill-item {
-    padding: 1rem;
-    background: var(--light);
+.skill-category {
+    background: var(--white);
     border: 3px solid var(--dark);
-    font-weight: 600;
-    color: var(--dark);
-    transition: all 0.2s ease;
+    padding: 2rem;
     position: relative;
 }
 
-.skill-item::before {
+.skill-category::before {
     content: '';
     position: absolute;
     top: -3px;
@@ -517,12 +491,50 @@ body {
     bottom: -3px;
     background: var(--accent);
     z-index: -1;
-    transform: translate(6px, 6px);
+    transform: translate(8px, 8px);
+}
+
+.skill-category h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 1.5rem 0;
+}
+
+.skill-list {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.skill-item {
+    padding: 0.8rem;
+    background: var(--light);
+    border: 2px solid var(--dark);
+    font-weight: 500;
+    color: var(--dark);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.skill-item::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--accent);
+    z-index: -1;
+    transform: translate(4px, 4px);
     transition: transform 0.2s ease;
 }
 
 .skill-item:hover::before {
-    transform: translate(3px, 3px);
+    transform: translate(2px, 2px);
 }
 
 .skill-item:hover {
