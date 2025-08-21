@@ -759,7 +759,6 @@ body {
     border: none;
     display: block;
     overflow: hidden;
-    height: calc(100% - 60px);
 }
 
 /* Responsive */
@@ -824,10 +823,6 @@ body {
 
     .chatbot-container {
         height: 450px;
-    }
-
-    .chatbot-iframe {
-        height: calc(100% - 50px);
     }
     
     .contact-grid {
