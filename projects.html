@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Projects Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            background: #FFFFFF;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 80px 40px;
+            overflow-x: hidden;
+            color: #000;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        /* Nothing-style header */
+        .glass-header {
+            background: #000;
+            padding: 120px 80px;
+            margin-bottom: 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            color: #FFF;
+            font-size: 5rem;
+            font-weight: 300;
+            margin-bottom: 32px;
+            letter-spacing: -3px;
+            line-height: 0.9;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.125rem;
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+            letter-spacing: -0.2px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 1px;
+            margin-bottom: 100px;
+            background: #000;
+            border: 1px solid #000;
+        }
+
+        .project-card {
+            background: #FFF;
+            padding: 60px 48px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            position: relative;
+        }
+
+        .project-card:hover {
+            background: #FF8A65;
+        }
+
+        .project-card:hover .project-title,
+        .project-card:hover .project-description,
+        .project-card:hover .tag {
+            color: #FFF;
+        }
+
+        .project-card:hover .project-icon {
+            background: #FFF;
+        }
+
+        .project-card:hover .project-icon svg {
+            stroke: #FF8A65;
+        }
+
+        .project-card:hover .project-link {
+            background: #FFF;
+            color: #FF8A65;
+        }
+
+        .project-icon {
+            width: 64px;
+            height: 64px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: #FFF;
+            stroke-width: 1.5px;
+            fill: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-title {
+            color: #000;
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            font-weight: 300;
+            flex-grow: 1;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: transparent;
+            color: #000;
+            border: 1px solid #E0E0E0;
+            padding: 6px 16px;
+            font-size: 0.75rem;
+            font-weight: 400;
+            font-family: 'Roboto Mono', monospace;
+            letter-spacing: 0.5px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: #000;
+            color: #FFF;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 400;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 0.5px;
+            margin-top: 20px;
+            align-self: flex-start;
+        }
+
+        .project-link:hover {
+            background: #FF8A65;
+            color: #FFF;
+        }
+
+        .project-card:hover .project-link:hover {
+            background: #000;
+            color: #FFF;
+        }
+
+        .project-link svg {
+            width: 16px;
+            height: 16px;
+            stroke-width: 2px;
+        }
+
+        /* Footer styles */
+        .footer {
+            background: #000;
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            font-weight: 300;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #FFF;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .social-link:hover {
+            background: #FF8A65;
+            border-color: #FF8A65;
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+            stroke-width: 1.5px;
+        }
+
+        /* Minimalist scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #FFF;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #E0E0E0;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF8A65;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 3rem;
+                letter-spacing: -2px;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .glass-header {
+                padding: 80px 40px;
+                margin-bottom: 60px;
+            }
+
+            .project-card {
+                padding: 40px 32px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                margin-bottom: 60px;
+            }
+
+            .footer {
+                padding: 60px 32px;
+            }
+
+            .project-icon {
+                width: 56px;
+                height: 56px;
+                font-size: 28px;
+            }
+
+            .project-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="glass-header">
+            <h1>My Pet Projects</h1>
+            <p class="subtitle">A collection of tools and experiments I've built to explore new technologies</p>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            <!-- Excel Formula Optimizer Project -->
+            <div class="project-card">
+                <div class="project-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="9" y1="3" x2="9" y2="21"></line>
+                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                        <line x1="3" y1="15" x2="9" y2="15"></line>
+                        <line x1="15" y1="9" x2="21" y2="9"></line>
+                    </svg>
+                </div>
+                <h2 class="project-title">Excel Formula Optimizer</h2>
+                <p class="project-description">
+                    An AI-powered tool that beautifies and optimizes Excel formulas.
+                    Input complex formulas and get back properly formatted, optimized versions
+                    with explanations of improvements using Claude AI.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">FastAPI</span>
+                    <span class="tag">Claude AI</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+                <a href="/excel-optimizer" class="project-link">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Placeholder for future projects -->
+            <div class="project-card" style="opacity: 0.6;">
+                <div class="project-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </div>
+                <h2 class="project-title">Coming Soon</h2>
+                <p class="project-description">
+                    More exciting projects are on the way! Check back soon to see what I've been working on.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">TBD</span>
+                </div>
+            </div>
+
+            <!-- Another placeholder -->
+            <div class="project-card" style="opacity: 0.6;">
+                <div class="project-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6m6.364-15.364l-4.243 4.243M9.88 14.12l-4.242 4.243M23 12h-6m-6 0H1m20.364 6.364l-4.243-4.243M9.88 9.88L5.636 5.636"></path>
+                    </svg>
+                </div>
+                <h2 class="project-title">Your Next Discovery</h2>
+                <p class="project-description">
+                    New projects and experiments will be added here as I continue exploring new technologies and ideas.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">TBD</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p class="footer-text">Connect with me on social media</p>
+            <div class="social-links">
+                <a href="https://funkydonkey.github.io/" target="_blank" rel="noopener noreferrer" class="social-link" title="Website">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/amolchansky/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+                <a href="https://github.com/funkydonkey/" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
