@@ -723,3 +723,42 @@ body.v2-dark .statement__sig { color: rgba(10,10,9,0.5); }
   .edu2 { grid-template-columns: 1fr; gap: 8px; }
   section { padding: 80px 0; }
 }
+
+@media (max-width: 640px) {
+  body { font-size: 14px; overflow-x: hidden; }
+  .wrap { padding: 0 20px; max-width: 100%; }
+  .hero-v2 { min-height: 100vh; }
+  .hero-v2__content { padding: 0 20px; }
+  .hero-v2__name { font-size: 48px; line-height: 1.05; }
+  .hero-v2__eyebrow { font-size: 11px; }
+  .sec-head { font-size: 11px; }
+  .sec-title { font-size: 28px; line-height: 1.15; }
+  .about-strip__figs { grid-template-columns: 1fr; gap: 32px; }
+  .fig__num { font-size: 56px; }
+  .exp2__role { font-size: 18px; }
+  .exp2__co { font-size: 14px; }
+  .cap__title { font-size: 16px; }
+  .work__title { font-size: 22px; }
+  .work__stat { font-size: 64px; }
+  .statement__text { font-size: 22px; line-height: 1.35; padding: 0 20px; }
+  .chat2__title { font-size: 24px; }
+  .chat2__sugs { grid-template-columns: 1fr; }
+  .contact2__lead { font-size: 56px; }
+  section { padding: 60px 0; }
+
+  /* Fix overflow issues */
+  * { max-width: 100%; }
+  img, video, canvas { max-width: 100%; height: auto; }
+  table { width: 100%; }
+  pre, code { word-wrap: break-word; white-space: pre-wrap; }
+}
+
+@media (max-width: 390px) {
+  .wrap { padding: 0 16px; }
+  .hero-v2__content { padding: 0 16px; }
+  .hero-v2__name { font-size: 40px; }
+  .sec-title { font-size: 24px; }
+  .contact2__lead { font-size: 48px; }
+  .work__stat { font-size: 52px; }
+  .statement__text { font-size: 20px; }
+}
